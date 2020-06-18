@@ -930,7 +930,7 @@ See also `pdf-view-use-imagemagick'."
 
 (defun pdf-view-use-scaling-p ()
   "Return t if scaling should be used."
-  (and (or (and (eq (framep-on-display) 'ns) (string-equal emacs-version "27.0.50"))
+  (and (or (and (eq (framep-on-display) 'ns) (fboundp 'image-transforms-p))
            (memq (pdf-view-image-type)
                  '(imagemagick image-io)))
        pdf-view-use-scaling))
